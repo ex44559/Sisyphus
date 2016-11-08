@@ -9,7 +9,7 @@ def reset_link() -> None:
     child.sendline("Sunbo220502")
 
 
-def main() -> None:
+def sisyphus() -> None:
     s = pxssh.pxssh()
 
     try:
@@ -26,7 +26,7 @@ def main() -> None:
         reset_link()
         print(e)
 
-#s.logout()
+# s.logout()
 
 if __name__ == '__main__':
-    main()
+    sisyphus()
