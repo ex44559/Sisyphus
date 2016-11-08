@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 from pexpect import pxssh
 import pexpect
+import sys
+import time
 
 
 def reset_link() -> None:
@@ -10,6 +12,12 @@ def reset_link() -> None:
 
 
 def sisyphus() -> None:
+    with open('log.txt', 'w+') as file:
+        sys.stdout = file  # 标准输出重定向至文件
+
+    localtime = time.asctime(time.localtime(time.time()))
+    print(localtime)
+
     s = pxssh.pxssh()
 
     try:
@@ -25,6 +33,8 @@ def sisyphus() -> None:
     except pexpect.ExceptionPexpect as e:
         reset_link()
         print(e)
+
+    print("executed\n")
 
 # s.logout()
 
