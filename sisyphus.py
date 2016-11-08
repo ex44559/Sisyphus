@@ -15,26 +15,26 @@ def sisyphus() -> None:
     with open('log.txt', 'w+') as file:
         sys.stdout = file  # 标准输出重定向至文件
 
-    localtime = time.asctime(time.localtime(time.time()))
-    print(localtime)
+        localtime = time.asctime(time.localtime(time.time()))
+        print(localtime)
 
-    s = pxssh.pxssh()
+        s = pxssh.pxssh()
 
-    try:
-        s.login("115.28.182.224", "root", "Sunbo220502", port="2200")
-    except pxssh.ExceptionPxssh as e:
-        print("pxssh failed on login.")
-        print(e)
+        try:
+            s.login("115.28.182.224", "root", "Sunbo220502", port="2200")
+        except pxssh.ExceptionPxssh as e:
+            print("pxssh failed on login.")
+            print(e)
 
-    try:
-        s.sendline('ssh 127.0.0.1 -p 2333 -l pi')
-        s.expect("pi@127.0.0.1's password:")
-        s.sendline('sunbo1')
-    except pexpect.ExceptionPexpect as e:
-        reset_link()
-        print(e)
+        try:
+            s.sendline('ssh 127.0.0.1 -p 2333 -l pi')
+            s.expect("pi@127.0.0.1's password:")
+            s.sendline('sunbo1')
+        except pexpect.ExceptionPexpect as e:
+            reset_link()
+            print(e)
 
-    print("executed\n")
+        print("executed\n")
 
 # s.logout()
 
