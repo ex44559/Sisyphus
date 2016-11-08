@@ -6,7 +6,7 @@ def main() -> None:
     try:
         s = pxssh.pxssh()
         s.login("115.28.182.224", "root", "Sunbo220502", port="2200")
-        s.sendline('who')
+        s.sendline('uname -a')
         s.prompt()
         print(s.before)
         s.logout()
