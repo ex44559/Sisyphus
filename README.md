@@ -24,6 +24,7 @@ Sisyphus运行在Raspberry Pi上，Server只需开启ssh服务即可。
 
 Raspberry Pi:
 - Python3
+- pexpect
 
 ## 使用方法
 
