@@ -10,16 +10,23 @@ def reset_link() -> None:
 
 
 def main() -> None:
+    s = pxssh.pxssh()
+
     try:
-        s = pxssh.pxssh()
-        s.login("115.28.182.224", "root", "Sunbo220502", port="2333")
-        s.sendline('who')
-        s.prompt()
-        print(s.before)
-        s.logout()
+        s.login("115.28.182.224", "root", "Sunbo220502", port="2200")
     except pxssh.ExceptionPxssh as e:
         print("pxssh failed on login.")
         print(e)
+
+    try:
+        s.sendline('ssh 127.0.0.1 -p 2333 -l pi')
+        s.expect("pi@127.0.0.1's password:")
+        s.sendline('sunbo1')
+    except pexpect.ExceptionPexpect as e:
+        reset_link()
+        print(e)
+
+    s.logout()
 
 if __name__ == '__main__':
     main()
