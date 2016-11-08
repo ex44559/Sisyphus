@@ -26,7 +26,7 @@ def main() -> None:
         reset_link()
         print(e)
 
-    s.logout()
+#s.logout()
 
 if __name__ == '__main__':
     main()
