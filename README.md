@@ -28,7 +28,7 @@ Raspberry Pi:
 
 ## 使用方法
 
-首先将源代码clone到本地：
+首先将源代码clone到Raspberry Pi中：
 
 ```bash
 git clone https://github.com/ex44559/Sisyphus
